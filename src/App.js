@@ -1,24 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import { RecursiveComponent } from "./RecursiveComponent";
+//import { DangerButton, BigSuccessButton } from "./composition";
+import { DangerButton, BigSuccessButton } from "./partiallyApply";
+const nestedObject = {
+    a: 1,
+    b: {
+        b1: 4,
+        b2: {
+            b23: 'Hello',
+        },
+        b3: {
+            b31: {
+                message: 'Hi',
+            },
+            b32: {
+                message: 'Hi',
+            }
+        }
+    },
+    c: {
+        c1: 2,
+        c2: 3,
+    },
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <DangerButton text="Don't do it!!" />
+    <BigSuccessButton text="Yes!!!" />
+    <RecursiveComponent data={nestedObject} />
+    </>
+    
   );
 }
 
